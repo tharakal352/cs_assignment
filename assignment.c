@@ -11,7 +11,7 @@ int bookSeat(char seats[4][10][10],char booked )
 
     printf("Enter the Hall, Row and seat\n");
     scanf("%d%d%d",&hall,&row,&seat);
-    seats[hall][row][seat] = 'x';
+    seats[hall-1][row-1][seat-1] = 'x';
 
 
 }
@@ -27,7 +27,7 @@ void showSeat(char seats[4][10][10])
             {
                 for (int k=0; k<10; k++)
                 {
-                    printf("%c",seats[i][j][k]);
+                    printf(" %c ",seats[i][j][k]);
                 }
                 printf("\n");
             }
@@ -44,18 +44,24 @@ int main()
     int choice;
     char booked = 'x';
     // array declaration
-    char seats[4][10][10] = {{{o,o,o,o,o,o,o,o,o,o},{o,o,o,o,o,o,o,o,o,o},{o,o,o,o,o,o,o,o,o,o},{o,o,o,o,o,o,o,o,o,o},
-    {o,o,o,o,o,o,o,o,o,o},{o,o,o,o,o,o,o,o,o,o},{o,o,o,o,o,o,o,o,o,o},{o,o,o,o,o,o,o,o,o,o},{o,o,o,o,o,o,o,o,o,o},
-    {o,o,o,o,o,o,o,o,o,o}},
-    {{o,o,o,o,o,o,o,o,o,o},{o,o,o,o,o,o,o,o,o,o},{o,o,o,o,o,o,o,o,o,o},{o,o,o,o,o,o,o,o,o,o},
-    {o,o,o,o,o,o,o,o,o,o},{o,o,o,o,o,o,o,o,o,o},{o,o,o,o,o,o,o,o,o,o},{o,o,o,o,o,o,o,o,o,o},{o,o,o,o,o,o,o,o,o,o},
-    {o,o,o,o,o,o,o,o,o,o}},
-    {{o,o,o,o,o,o,o,o,o,o},{o,o,o,o,o,o,o,o,o,o},{o,o,o,o,o,o,o,o,o,o},{o,o,o,o,o,o,o,o,o,o},
-    {o,o,o,o,o,o,o,o,o,o},{o,o,o,o,o,o,o,o,o,o},{o,o,o,o,o,o,o,o,o,o},{o,o,o,o,o,o,o,o,o,o},{o,o,o,o,o,o,o,o,o,o},
-    {o,o,o,o,o,o,o,o,o,o}},
-    {{o,o,o,o,o,o,o,o,o,o},{o,o,o,o,o,o,o,o,o,o},{o,o,o,o,o,o,o,o,o,o},{o,o,o,o,o,o,o,o,o,o},
-    {o,o,o,o,o,o,o,o,o,o},{o,o,o,o,o,o,o,o,o,o},{o,o,o,o,o,o,o,o,o,o},{o,o,o,o,o,o,o,o,o,o},{o,o,o,o,o,o,o,o,o,o},
-    {o,o,o,o,o,o,o,o,o,o}}
+    char seats[4][10][10] = {
+
+        {{'o','o','o','o','o','o','o','o','o','o'},{'o','o','o','o','o','o','o','o','o','o'},{'o','o','o','o','o','o','o','o','o','o'},
+        {'o','o','o','o','o','o','o','o','o','o'},{'o','o','o','o','o','o','o','o','o','o'},{'o','o','o','o','o','o','o','o','o','o'},
+        {'o','o','o','o','o','o','o','o','o','o'},{'o','o','o','o','o','o','o','o','o','o'},{'o','o','o','o','o','o','o','o','o','o'},
+        {'o','o','o','o','o','o','o','o','o','o'}},
+        {{'o','o','o','o','o','o','o','o','o','o'},{'o','o','o','o','o','o','o','o','o','o'},{'o','o','o','o','o','o','o','o','o','o'},
+        {'o','o','o','o','o','o','o','o','o','o'},{'o','o','o','o','o','o','o','o','o','o'},{'o','o','o','o','o','o','o','o','o','o'},
+        {'o','o','o','o','o','o','o','o','o','o'},{'o','o','o','o','o','o','o','o','o','o'},{'o','o','o','o','o','o','o','o','o','o'},
+        {'o','o','o','o','o','o','o','o','o','o'}},
+        {{'o','o','o','o','o','o','o','o','o','o'},{'o','o','o','o','o','o','o','o','o','o'},{'o','o','o','o','o','o','o','o','o','o'},
+        {'o','o','o','o','o','o','o','o','o','o'},{'o','o','o','o','o','o','o','o','o','o'},{'o','o','o','o','o','o','o','o','o','o'},
+        {'o','o','o','o','o','o','o','o','o','o'},{'o','o','o','o','o','o','o','o','o','o'},{'o','o','o','o','o','o','o','o','o','o'},
+        {'o','o','o','o','o','o','o','o','o','o'}},
+        {{'o','o','o','o','o','o','o','o','o','o'},{'o','o','o','o','o','o','o','o','o','o'},{'o','o','o','o','o','o','o','o','o','o'},
+        {'o','o','o','o','o','o','o','o','o','o'},{'o','o','o','o','o','o','o','o','o','o'},{'o','o','o','o','o','o','o','o','o','o'},
+        {'o','o','o','o','o','o','o','o','o','o'},{'o','o','o','o','o','o','o','o','o','o'},{'o','o','o','o','o','o','o','o','o','o'},
+        {'o','o','o','o','o','o','o','o','o','o'}}
     };
     while(choice != 3)
     {
